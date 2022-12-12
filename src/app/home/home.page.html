@@ -1,0 +1,106 @@
+<ion-header >
+  <ion-toolbar color="light" >
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <img class="censo" style="width: 70%; margin: 10px;" src="https://censoenlinea.censoecuador.gob.ec/sipe-captura-war/imagenes/logo-censo-ecuador.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="credentials" (ngSubmit)="info()">
+    <section id="personal-data">
+      <h3 style="font-size: medium; text-align: center;" class="encabezado">Ingrese los datos de la persona censada</h3>
+  
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Nombre:
+        </ion-label>
+        <!-- <ion-input [ngModel]="newNote.title"></ion-input> -->
+        <!-- <ion-input class="normal" type="text"></ion-input> -->
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <div *ngIf="note">
+          <ion-item>
+            <ion-label>NombrePrueba</ion-label>
+            <ion-input [(ngModel)]="note.title"></ion-input>
+          </ion-item>
+        </div>
+      </ion-item> -->
+      
+    
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Apellido:
+        </ion-label>
+        <ion-input [(ngModel)]="apellido"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Número de cedula:
+        </ion-label>
+        <ion-input [(ngModel)]="cedula"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Número de integrantes en la familia:
+        </ion-label>
+        <ion-input [(ngModel)]="familia"></ion-input>
+      </ion-item>
+    </section>
+  </form>
+
+<section id="coordinates">
+    <div class="Latitude">
+      <ion-item>
+        <ion-label>Longitud: {{longitud}}</ion-label>
+      </ion-item>
+    </div>
+    <div class="Longitude">
+      <ion-item>
+        <ion-label>Latituddd: {{latitud}}</ion-label>
+      </ion-item>
+    </div>
+    <div class="GetCoordinates">
+      <ion-button expand="full" (click)=locate()>
+        <ion-icon name="compass"></ion-icon>
+        <label (click)="locate()" class="location" style="border-radius:15px;text-align: center;">
+          Ubicación en coordenadas</label>
+      </ion-button>
+    </div>
+
+    
+</section>
+
+<!-- IMAGEN DE LA CASA -->
+<ion-item>
+  <ion-label class="normal">
+    Imágen de la casa:
+  </ion-label>  
+  <ion-buttons slot="end">
+    <ion-icon slot="ion-only" (click)="changeImage()" name="images">
+    </ion-icon>
+  </ion-buttons>
+</ion-item>
+<ion-item>
+    <img class="avatar" *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+</ion-item>
+
+
+
+
+<!-- MOD1  -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addNuevo()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+</ion-content>
