@@ -75,6 +75,18 @@
       </ion-button>
     </div>
 
+     <!-- <a href="https://www.google.com/maps/@{{latitud}},{{longitud}}">
+      VER EN MAPA</a>     -->
+     <!-- <p>VER EN MAPA <a href="https://www.google.com/maps/@{{latitud}},{{longitud}}" target="_blank">GoogleMaps</a>.</p> -->
+     
+    <ion-button expand="full">
+      <ion-icon name="compass"></ion-icon>
+      <label (click)="locate()" class="location" style="border-radius:15px;text-align: center;">
+        <a href="https://www.google.com/maps/@{{latitud}},{{longitud}}" target="_blank" style="color: aliceblue; text-decoration: none;">GoogleMaps</a></label>
+    </ion-button>
+
+    
+
     
 </section>
 
